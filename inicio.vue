@@ -1,3 +1,3 @@
 <template>
-    <p>hola mundo</p>
+    <p>Jorge Alberto Coronado Guzman</p>
 </template>
