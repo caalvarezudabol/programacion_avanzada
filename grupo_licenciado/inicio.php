@@ -1,6 +1,6 @@
 <?php
 
-print("Ruddy Mauricio Laura Quispe");
+print("Somos Ruddy Mauricio Laura Quispe, Emanuel, Julia, Jorge ALberto Coronado");
 
 
 ?>
