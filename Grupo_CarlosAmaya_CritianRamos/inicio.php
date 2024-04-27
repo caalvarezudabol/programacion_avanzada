@@ -1,4 +1,8 @@
-°<!DOCTYPE html>
+<?php
+    print("Carlos Diego Amaya Cardona")
+    print("Cristian Gabriel Ramos Simon")
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +10,6 @@
     <title>Document</title>
 </head>
 <body>
-    carmen berezy chavez salvatierra, benji gabino mullisaca, sthepanie zenzano 
+    
 </body>
 </html>
