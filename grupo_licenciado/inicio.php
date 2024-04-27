@@ -1,6 +1,7 @@
 <?php
 
-print("Somos Ruddy Mauricio Laura Quispe, Jorge ALberto Coronado");
+print("Somos grupo licen conformado por Ruddy Mauricio Laura Quispe, Jorge Alberto Coronado Guzman, Abasto Vargas Julia Emalier,
+Dennis Joel Cruz Flores");
 
 
 ?>
