@@ -16,11 +16,11 @@ class EmpresaSeeder extends Seeder
     public function run()
     {
         Empresa::create([
-            'nombre' => 'INSTITUTO TECNOLOGICO POPULAR IGUALATORIO ANDRES IBAÑEZ',
-            'nit' => '1020304050',
-            'direccion' => 'AV. ROSALES, BARRIO SUAREZ PONPEYUS ZONA PLAN 3000, LADO EPI-3',
-            'telefono' => '3608118',
-            'ciudad' => 'SANTA CRUZ DE LA SIERRA',
+            'nombre' => 'INSTITUTO TILUCHI S.R.L.',
+            'nit' => '123456',
+            'direccion' => 'AV. 6TO ANILLO Y AV MOSCU',
+            'telefono' => '12345',
+            'ciudad' => 'SANTA CRUZ - BOLIVIA',
         ]);
     }
 }
