@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('prueba__joses', function (Blueprint $table) {
             $table->id();
-            $table->string('JoseMaria');
-            $table->string('MiguelFlores');
-            $table->string('Miguel Angel');
-            $table->string('JoseMaria');
+            $table->string('Jose Maria Escobar');
+            $table->string('Miguel Flores Copa');
+            $table->string('Miguel Angel Lopez ');
+            $table->string('Marcos evelio Riveria');
             $table->timestamps();
         });
     }
