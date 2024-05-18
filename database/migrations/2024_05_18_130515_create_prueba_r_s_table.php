@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->text('descripcion');
-            $table->tinIngeteger('edad');
+            $table->tinInteger('edad');
             $table->timestamps();
         });
     }
