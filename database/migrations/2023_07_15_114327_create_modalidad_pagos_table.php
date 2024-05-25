@@ -13,12 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('prueba__joses', function (Blueprint $table) {
+        Schema::create('modalidad_pagos', function (Blueprint $table) {
             $table->id();
-            $table->string('Jose_Maria_Escobar');
-            $table->string('Miguel_Flores_Copa');
-            $table->string('Miguel_Angel_Lopez ');
-            $table->string('Marcos_evelio_Riveria');
+            $table->unsignedBigInteger('gestion_id');
+
+            $table->string('descripcion');
+            $table->decimal('monto_pagar', 8, 2)->default(0);
+            $table->tinyInteger('estado')->default(1);
+
+            $table->foreign('gestion_id')->references('id')->on('gestions');
+
             $table->timestamps();
         });
     }
@@ -30,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prueba__joses');
+        Schema::dropIfExists('modalidad_pagos');
     }
 };

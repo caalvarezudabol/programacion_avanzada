@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PruebaR;
+use App\Models\Prerequisito;
 use Illuminate\Http\Request;
 
-class PruebaRController extends Controller
+class PrerequisitoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class PruebaRController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PruebaR  $pruebaR
+     * @param  \App\Models\Prerequisito  $prerequisito
      * @return \Illuminate\Http\Response
      */
-    public function show(PruebaR $pruebaR)
+    public function show(Prerequisito $prerequisito)
     {
         //
     }
@@ -52,10 +52,10 @@ class PruebaRController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\PruebaR  $pruebaR
+     * @param  \App\Models\Prerequisito  $prerequisito
      * @return \Illuminate\Http\Response
      */
-    public function edit(PruebaR $pruebaR)
+    public function edit(Prerequisito $prerequisito)
     {
         //
     }
@@ -64,10 +64,10 @@ class PruebaRController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PruebaR  $pruebaR
+     * @param  \App\Models\Prerequisito  $prerequisito
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PruebaR $pruebaR)
+    public function update(Request $request, Prerequisito $prerequisito)
     {
         //
     }
@@ -75,10 +75,10 @@ class PruebaRController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PruebaR  $pruebaR
+     * @param  \App\Models\Prerequisito  $prerequisito
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PruebaR $pruebaR)
+    public function destroy(Prerequisito $prerequisito)
     {
         //
     }

@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pruebas', function (Blueprint $table) {
+        Schema::create('canal_publicitarios', function (Blueprint $table) {
             $table->id();
-            $table->nombre('javier Choque Flores');
-            $table->nombre('Julio Cesar Choque Grimaldo');
-            $table->nombre('Luis Gabriel Flores Valdes');
+            $table->string('descripcion');
+            $table->tinyInteger('estado')->default(1);
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pruebas');
+        Schema::dropIfExists('canal_publicitarios');
     }
 };

@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('prueba3s', function (Blueprint $table) {
+        Schema::create('becas', function (Blueprint $table) {
             $table->id();
-            $table->nombre('Ruddy Mauricio Laura Quispe');
-            $table->nombre('Jorge Alberto Coronado');
+            $table->string('descripcion');
+            $table->integer('porcentaje')->default(0)->nullable();
+            $table->tinyInteger('estado')->default(1);
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prueba3s');
+        Schema::dropIfExists('becas');
     }
 };
