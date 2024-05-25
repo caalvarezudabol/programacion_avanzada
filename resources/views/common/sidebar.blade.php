@@ -5,7 +5,7 @@
             {{-- <i class="fas fa-university"></i> --}}
             <img src="{{ asset('images/icon.png') }}" alt="Logo" width="50px">
         </div>
-        <div class="sidebar-brand-text mx-3">ITPIAI</div>
+        <div class="sidebar-brand-text mx-3">SIT BOLIVIA</div>
     </a>
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
@@ -19,11 +19,6 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        PARAMETROS
-    </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
     @php
@@ -54,89 +49,19 @@
             ];
             return $menu;
         }
-        // $menu_parametros = [];
-        // $menu_localizaciones = [];
-        // $menu_estudiantes = [];
-        // $menu_inscripciones = [];
-        // $menu_administradores = [];
-        // $menu_reportes = [];
-
-        $routesMoluleParameters = ['gestions', 'plazoinscripcions', 'becas','plan_estudios', 'resoluciones', 'canal_publicitarios', 'modalidadpagos', 'turnos', 'carreras', 'docentes', 'materias'];
-        $menu_parametros = addAttribMenu(isRouteSelected($routesMoluleParameters));
-
-        $routesModuleLocalizaciones = ['paises', 'departamentos', 'provincias', 'localidades'];
-        $menu_localizaciones = addAttribMenu(isRouteSelected($routesModuleLocalizaciones));
 
         $routesModuleEstudents = ['estudiantes', 'generos', 'expedicion_cis'];
         $menu_estudiantes = addAttribMenu(isRouteSelected($routesModuleEstudents));
 
-        $routesModuleInscriptions = ['inscripciones', 'estado_verificaciones', 'libros'];
-        $menu_inscripciones = addAttribMenu(isRouteSelected($routesModuleInscriptions) || Route::is('notasgestions.index') || isRouteSelected(['detalle_inscripcion_becas'], ['index', 'edit']));
-
-        $menu_administradores = addAttribMenu(isRouteSelected(['users']) || Route::is('users.delete') || isRouteSelected(['empresas'], ['index', 'create']) || isRouteSelected(['roles', 'permissions'], ['index', 'create']));
-        $menu_reportes = addAttribMenu(isRouteSelected(['r_inscripcion'], ['index', 'filtrar']));
+        $menu_administradores = addAttribMenu(
+            isRouteSelected(['users']) ||
+                Route::is('users.delete') ||
+                isRouteSelected(['empresas'], ['index', 'create']) ||
+                isRouteSelected(['roles', 'permissions'], ['index', 'create']),
+        );
 
     @endphp
-    <li class="nav-item {{ $menu_parametros['nav-item'] }}">
-        <a class="nav-link {{ $menu_parametros['nav-link'] }}" href="#" data-toggle="collapse"
-            data-target="#collapseParametros" aria-expanded="{{ $menu_parametros['aria-expanded'] }}"
-            aria-controls="collapseParametros">
-            <i class="fas fa-fw fa-cog fa-lg"></i>
-            <span>PAR&Aacute;METROS</span>
-        </a>
-        <div id="collapseParametros" class="collapse {{ $menu_parametros['collapse'] }}" aria-labelledby="headingTwo"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item {{ Route::is('gestions.index') ? 'active' : '' }}"
-                    href="{{ route('gestions.index') }}">Gestiones</a>
-                <a class="collapse-item {{ Route::is('plazoinscripcions.index') ? 'active' : '' }}"
-                    href="{{ route('plazoinscripcions.index') }}">Plazo Inscripciones</a>
-                <a class="collapse-item {{ Route::is('becas.index') ? 'active' : '' }}"
-                    href="{{ route('becas.index') }}">Becas</a>
-                <a class="collapse-item {{ Route::is('docentes.index') ? 'active' : '' }}"
-                    href="{{ route('docentes.index') }}">Docentes</a>
-                <a class="collapse-item {{ Route::is('resoluciones.index') ? 'active' : '' }}"
-                    href="{{ route('resoluciones.index') }}">Resoluciones</a>
-                <a class="collapse-item {{ Route::is('plan_estudios.index') ? 'active' : '' }}"
-                    href="{{ route('plan_estudios.index') }}">Plan de Estudio</a>
-                <a class="collapse-item {{ Route::is('carreras.index') ? 'active' : '' }}"
-                        href="{{ route('carreras.index') }}">Carreras</a>
-                <a class="collapse-item {{ Route::is('materias.index') ? 'active' : '' }}"
-                    href="{{ route('materias.index') }}">Materias</a>
-                <a class="collapse-item {{ Route::is('turnos.index') ? 'active' : '' }}"
-                    href="{{ route('turnos.index') }}">Turnos</a>
-                <a class="collapse-item {{ Route::is('canal_publicitarios.index') ? 'active' : '' }}"
-                    href="{{ route('canal_publicitarios.index') }}">Canal Publicitario</a>
-                <a class="collapse-item {{ Route::is('modalidadpagos.index') ? 'active' : '' }}"
-                    href="{{ route('modalidadpagos.index') }}">Modalidad Pagos</a>
-            </div>
-        </div>
-    </li>
-    {{-- You --}}
-    <hr class="sidebar-divider">
-    <li class="nav-item {{ $menu_localizaciones['nav-item'] }}">
-        <a class="nav-link collapsed {{ $menu_localizaciones['nav-link'] }}" href="#" data-toggle="collapse"
-            data-target="#collapseLocation" aria-expanded="{{ $menu_localizaciones['aria-expanded'] }}"
-            aria-controls="collapseLocation">
-            <i class="fas fa-globe"></i>
-            <span>LOCALIZACIONES</span>
-        </a>
-        <div id="collapseLocation" class="collapse {{ $menu_localizaciones['collapse'] }}"
-            aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item {{ Route::is('paises.index') ? 'active' : '' }}"
-                    href="{{ route('paises.index') }}">Países</a>
-                <a class="collapse-item {{ Route::is('departamentos.index') ? 'active' : '' }}"
-                    href="{{ route('departamentos.index') }}">Departamentos</a>
-                <a class="collapse-item {{ Route::is('provincias.index') ? 'active' : '' }}"
-                    href="{{ route('provincias.index') }}">Provincias</a>
-                <a class="collapse-item {{ Route::is('localidades.index') ? 'active' : '' }}"
-                    href="{{ route('localidades.index') }}">Localidades</a>
-            </div>
-        </div>
-    </li>
-    {{-- Fin  You --}}
-    <hr class="sidebar-divider">
+
     <li class="nav-item {{ $menu_estudiantes['nav-item'] }}">
         <a class="nav-link collapsed {{ $menu_estudiantes['nav-link'] }}" href="#" data-toggle="collapse"
             data-target="#collapseEstudent" aria-expanded="{{ $menu_estudiantes['aria-expanded'] }}"
@@ -147,50 +72,14 @@
         <div id="collapseEstudent" class="collapse {{ $menu_estudiantes['collapse'] }}" aria-labelledby="headingPages"
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item {{ Route::is('generos.index') ? 'active' : '' }}"
-                    href="{{ route('generos.index') }}">G&eacute;nero</a>
-                <a class="collapse-item {{ Route::is('expedicion_cis.index') ? 'active' : '' }}"
-                    href="{{ route('expedicion_cis.index') }}">Expediciones CI</a>
                 <a class="collapse-item {{ Route::is('estudiantes.index') ? 'active' : '' }}"
                     href="{{ route('estudiantes.index') }}">Estudiantes</a>
             </div>
         </div>
     </li>
     <hr class="sidebar-divider">
-    <li class="nav-item {{ $menu_inscripciones['nav-item'] }}">
-        <a class="nav-link collapsed {{ $menu_inscripciones['nav-link'] }}" href="#" data-toggle="collapse"
-            data-target="#collapseInscription" aria-expanded="{{ $menu_inscripciones['aria-expanded'] }}"
-            aria-controls="collapseInscription">
-            <i class="fas fa-clipboard-list"></i>
-            <span>INSCRIPCIONES</span>
-        </a>
-        <div id="collapseInscription" class="collapse {{ $menu_inscripciones['collapse'] }}"
-            aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                {{-- <a class="collapse-item {{ Route::is('inscriptors.index') ? 'active' : '' }}"
-                    href="{{ route('inscriptors.index') }}">Inscriptor</a> --}}
-                <a class="collapse-item {{ Route::is('libros.index') ? 'active' : '' }}"
-                        href="{{ route('libros.index') }}">Libros</a><a class="collapse-item {{ Route::is('inscripciones.index') ? 'active' : '' }}"
-                    href="{{ route('inscripciones.index') }}">Inscripciones</a>
-                <a class="collapse-item {{ Route::is('estado_verificaciones.index') ? 'active' : '' }}"
-                    href="{{ route('estado_verificaciones.index') }}">Verificaciones</a>
-
-                <a class="collapse-item {{ Route::is('notasgestions.index') ? 'active' : '' }}"
-                    href="{{ route('notasgestions.index') }}">Notas Gestiones</a>
-                <a class="collapse-item {{ Route::is('detalle_inscripcion_becas.index') ? 'active' : '' }}"
-                    href="{{ route('detalle_inscripcion_becas.index') }}">Detalle Inscripción Beca</a>
-            </div>
-        </div>
-    </li>
-    <!-- Divider -->
-    <hr class="sidebar-divider">
 
     @hasrole('Admin')
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Admin Section
-        </div>
-
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item {{ $menu_administradores['nav-item'] }}">
             <a class="nav-link collapsed {{ $menu_administradores['nav-link'] }}" href="#" data-toggle="collapse"
@@ -199,8 +88,8 @@
                 <i class="fas fa-user-shield"></i>
                 <span>ADMINISTRADOR</span>
             </a>
-            <div id="collapsePages" class="collapse {{ $menu_administradores['collapse'] }}"
-                aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div id="collapsePages" class="collapse {{ $menu_administradores['collapse'] }}" aria-labelledby="headingPages"
+                data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Roles & Permisos</h6>
                     <a class="collapse-item" href="{{ route('roles.index') }}">Roles</a>
@@ -213,27 +102,6 @@
             </div>
         </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
-    @endhasrole
-    @hasrole('Admin')
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ $menu_reportes['nav-item'] }}">
-            <a class="nav-link collapsed {{ $menu_reportes['nav-link'] }}" href="#" data-toggle="collapse"
-                data-target="#collapseReport" aria-expanded="{{ $menu_reportes['aria-expanded'] }}"
-                aria-controls="collapseReport">
-                <i class="fas fa-table"></i>
-                <span>REPORTES</span>
-            </a>
-            <div id="collapseReport" class="collapse {{ $menu_reportes['collapse'] }}" aria-labelledby="headingPages"
-                data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="{{ route('r_inscripcion.index') }}">Alumnos Inscriptos</a>
-                    <a class="collapse-item" href="{{ route('r_historico_academico.index') }}">Historicos Academicos</a>
-                    <a class="collapse-item" href="{{ route('r_centralizador.index') }}">Centralizador Notas</a>
-                </div>
-            </div>
-        </li>
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
     @endhasrole

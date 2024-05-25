@@ -33,7 +33,7 @@ class Estudiante extends Model
         'estado' => 1,
     ];
 
-    protected $appends = ['estado_texto', 'departamento_texto', 'genero_texto']/*, 'provincia_texto', 'localidad_texto']*/;
+    protected $appends = ['estado_texto'];
 
     public function getEstadoTextoAttribute() //Cada Appendes necesita una funcion get
     {
@@ -47,66 +47,5 @@ class Estudiante extends Model
                 break;
         }
         return $estado_texto;
-    }
-    public function getGeneroTextoAttribute()
-    {
-        $genero_texto = '';
-        switch ($this->genero) {
-            case "M":
-                $genero_texto = 'MASCULINO';
-                break;
-            case "F":
-                $genero_texto = 'FEMENINO';
-                break;
-        }
-        return $genero_texto;
-    }
-
-    public function getDepartamentoTextoAttribute()
-    {
-        $departemento_texto = '';
-        switch ($this->departamento) {
-            case 'SC':
-                $departemento_texto = 'SANTA CRUZ';
-                break;
-            case 'LP':
-                $departemento_texto = 'LA PAZ';
-                break;
-            case 'CB':
-                $departemento_texto = 'COCHABAMBA';
-                break;
-            case 'OR':
-                $departemento_texto = 'ORURO';
-                break;
-            case 'PT':
-                $departemento_texto = 'POTOSI';
-                break;
-            case 'CH':
-                $departemento_texto = 'CHUQUISACA';
-                break;
-            case 'TJ':
-                $departemento_texto = 'TARIJA';
-                break;
-            case 'BE':
-                $departemento_texto = 'BENI';
-                break;
-            case 'PD':
-                $departemento_texto = 'PANDO';
-                break;
-        }
-        return $departemento_texto;
-    }
-
-    public function localidad()
-    {
-        return $this->belongsTo(Localidad::class);
-    }
-    public function genero()
-    {
-        return $this->belongsTo(Genero::class);
-    }
-    public function expedicion_ci()
-    {
-        return $this->belongsTo(ExpedicionCi::class);
     }
 }

@@ -7,10 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-use App\Models\Localidad;
 use App\Models\Estudiante;
-use App\Models\Genero;
-use App\Models\ExpedicionCi;
 
 
 class EstudianteController extends Controller
@@ -31,53 +28,27 @@ class EstudianteController extends Controller
     public function index()
     {
         $estudiantes = Estudiante::paginate(11);
-        //$localidades = Localidad::all();
-        //$generos = Genero::all();
-        //$expedicion_cis = ExpedicionCi::all();
         return view('estudiantes.index', [
             'estudiantes' => $estudiantes,
-            //'localidades' => $localidades,
-            //'generos' => $generos,
-            //'expedicion_cis' => $expedicion_cis
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        $localidades = Localidad::all();
-        $generos = Genero::all();
-        $expedicion_cis = ExpedicionCi::all();
-        return view('estudiantes.create', [
-            'localidades' => $localidades,
-            'generos' => $generos,
-            'expedicion_cis' => $expedicion_cis
-        ]);
+
+        return view('estudiantes.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
             'documento' => ['required', 'unique:estudiantes'],
             'nombres' => ['required', 'max:255'],
             'apellidos' => ['required', 'max:255'],
-            'fecha_nacimiento'=>['required', 'max:255'],
+            'fecha_nacimiento' => ['required', 'max:255'],
             'correo' => ['required', 'max:255', 'unique:estudiantes'],
-            'telefono'=>['required', 'numeric'],
-            'direccion'=>['required', 'max:255'],
-            'localidad_id'=>['required'],
-            'genero_id'=>['required'],
-            'expedicion_ci_id'=>['required']
+            'telefono' => ['required', 'numeric'],
+            'direccion' => ['required', 'max:255'],
         ]);
         //Registrar fecha de registro internamente
         $estudiante = Estudiante::create([
@@ -98,12 +69,6 @@ class EstudianteController extends Controller
             ->with('success', 'Estudiante creado satisfactoriamente.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Estudiante  $estudiante
-     * @return \Illuminate\Http\Response
-     */
     public function show(Estudiante $estudiante)
     {
         return view('estudiantes.show', [
@@ -111,44 +76,23 @@ class EstudianteController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Estudiante  $estudiante
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Estudiante $estudiante)
     {
-        $localidades = Localidad::all();
-        $generos = Genero::all();
-        $expedicion_cis = ExpedicionCi::all();
         return view('estudiantes.edit', [
-            'estudiante' => $estudiante,
-            'localidades' => $localidades,
-            'generos' => $generos,
-            'expedicion_cis' => $expedicion_cis
+            'estudiante' => $estudiante
         ]);
     }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Estudiante  $estudiante
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Estudiante $estudiante)
     {
         $request->validate([
             'nombres' => ['required', 'max:255'],
             'apellidos' => ['required', 'max:255'],
-            'genero_id'=>['required', 'max:255'],
-            'fecha_nacimiento'=>['required', 'max:255'],
+            'fecha_nacimiento' => ['required', 'max:255'],
             'documento' => ['required', 'max:255'],
-            'expedicion_ci_id'=>['required', 'max:255'],
-            'localidad_id'=>['required', 'max:255'],
-            'direccion'=>['required', 'max:255'],
+            'direccion' => ['required', 'max:255'],
             'correo' => ['required', 'max:255'],
-            'telefono'=>['required', 'max:255'],
+            'telefono' => ['required', 'max:255'],
             'fecha_registro' => ['required', 'max:255'],
         ]);
         $estudiante->update($request->all());
@@ -156,12 +100,7 @@ class EstudianteController extends Controller
         return redirect()->route('estudiantes.index')
             ->with('success', 'Estudiante actualizado satisfactoriamente');
     }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Estudiante  $estudiante
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Estudiante $estudiante)
     {
         if ($estudiante->estado == 1) {
