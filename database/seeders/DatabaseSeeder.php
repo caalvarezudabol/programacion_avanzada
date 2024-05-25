@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             RoleSeeder::class,
             PermissionSeeder::class,
-            FacultadSeeder::class,
+           /*  FacultadSeeder::class,
             CarreraSeeder::class,
             TurnosSeeder::class,
             BecasSeeder::class,
@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
             DocenteSeeder::class,
             EmpresaSeeder::class,
             LibroSeeder::class,
-            MateriaSeeder::class,
+            MateriaSeeder::class, */
         ]);
     }
 }

@@ -45,6 +45,7 @@ use App\Models\Genero;
 use App\Observers\GeneroObserver;
 use App\Models\ExpedicionCi;
 use App\Observers\ExpedicionCiObserver;
+
 class EventServiceProvider extends ServiceProvider
 {
     /**
@@ -65,24 +66,9 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot() //Vinculos con el observer
     {
-        Beca::observe(BecaObserver::class);
-        CanalPublicitario::observe(CanalPublicitarioObserver::class);
-        Carrera::observe(CarreraObserver::class);
-        Docente::observe(DocenteObserver::class);
-        EstadoVerificacion::observe(EstadoVerificacionObserver::class);
+
         Estudiante::observe(EstudianteObserver::class);
-        Gestion::observe(GestionObserver::class);
-        Inscriptor::observe(InscriptorObserver::class);
-        Inscripcion::observe(InscripcionObserver::class);
-        ModalidadPago::observe(ModalidadPagoObserver::class);
-        Plazoinscripcion::observe(PlazoInscripcionObserver::class);
+
         User::observe(UserObserver::class);
-        Turno::observe(TurnoObserver::class);
-        Pais::observe(PaisObserver::class);
-        Departamento::observe(DepartamentoObserver::class);
-        Provincia::observe(ProvinciaObserver::class);
-        Localidad::observe(LocalidadObserver::class);
-        Genero::observe(GeneroObserver::class);
-        ExpedicionCi::observe(ExpedicionCiObserver::class);
     }
 }
