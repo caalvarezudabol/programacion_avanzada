@@ -18,23 +18,6 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             RoleSeeder::class,
             PermissionSeeder::class,
-           /*  FacultadSeeder::class,
-            CarreraSeeder::class,
-            TurnosSeeder::class,
-            BecasSeeder::class,
-            CanalPublicitarioSeeder::class,
-            PaisSeeder::class,
-            DepartamentoSeeder::class,
-            ProvinciaSeeder::class,
-            LocalidadSeeder::class, //instanciando el
-            GeneroSeeder::class,
-            ExpedicionCiSeeder::class,
-            GestionSeeder::class,
-            ModalidaPagosSeeder::class,
-            DocenteSeeder::class,
-            EmpresaSeeder::class,
-            LibroSeeder::class,
-            MateriaSeeder::class, */
         ]);
     }
 }

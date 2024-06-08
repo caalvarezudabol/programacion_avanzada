@@ -3,30 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Estudiante;
-
+use Illuminate\Support\Facades\Auth;
 
 class EstudianteController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('permission:estudiante-listar|estudiante-crear|estudiante-editar|estudiante-eliminar', ['only' => ['index']]);
-        $this->middleware('permission:estudiante-crear', ['only' => ['create', 'store']]);
-        $this->middleware('permission:estudiante-editar', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:estudiante-eliminar', ['only' => ['eliminar']]);
-    }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
+        if (Auth::user()->can('estudiantes.index')) {
+            abort(403, 'Unauthorized action.');
+        }
         $estudiantes = Estudiante::paginate(11);
         return view('estudiantes.index', [
             'estudiantes' => $estudiantes,
@@ -35,7 +25,9 @@ class EstudianteController extends Controller
 
     public function create()
     {
-
+        if (Auth::user()->can('estudiantes.create')) {
+            abort(403, 'Unauthorized action.');
+        }
         return view('estudiantes.create');
     }
 

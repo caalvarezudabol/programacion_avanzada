@@ -48,4 +48,5 @@ class Estudiante extends Model
         }
         return $estado_texto;
     }
+
 }
